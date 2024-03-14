@@ -1,0 +1,7 @@
+<%= render partial: 'pages/page_panel', locals: { page: @page, post: nil, is_post: true } %>
+<div class="col-md-offset-1 col-md-10">
+	<div class="text-right">
+		<%= paginate @posts %>
+	</div>
+	<%= render partial: 'posts_list', collection: @posts, as: :post, locals: { page: @page } %>
+</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Huburb</title>
+    <%= csrf_meta_tags %>
+
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+		<%= action_cable_meta_tag %>
+		<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAdZpcBJONm9yho_VGkwAg5Mt3W2krot30", async: Rails.env.production?, defer: Rails.env.production? %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<% if Rails.env.production? %>
+			<script type="text/javascript">
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+				ga('create', 'UA-88469614-1', 'auto');
+			</script>
+		<% end %>
+  </head>
+	<body id="<%= controller_name %>_<%= action_name %>">
+		<%= render "shared/navigation" %>
+
+		<div id="content-container" class="container">
+			<%= flash_messages %>
+			<div id="parent-row" class="row">
+				<%= yield %>
+			</div>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<div class="btn-group margin-right-15">
+	<% if page.posts.present? && (is_post ^ post.nil?) %>
+		<%= link_to 'Posts', page_posts_path(page), class: 'btn btn-default' %>
+	<% end %>
+	<% if page.owner == current_user %>
+		<% if post.nil? %>
+			<%= link_to 'Create Post', new_page_post_path(page), class: 'btn btn-default' %>
+		<% else %>
+			<%= link_to 'Edit', edit_page_post_path(page, post), class: 'btn btn-default' %>
+			<%= link_to 'Delete', page_post_path(page, post), method: :delete, remote: true, 
+				data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+		<% end %>
+	<% end %>
+</div>

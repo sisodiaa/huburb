@@ -1,0 +1,11 @@
+<div id="chat-panel-create-room">
+	<div class="chat-panel-create-room-form">
+		<%= button_to "Chat with #{page.name}",
+									chatrooms_path(current_user.username, page),
+									id: 'button-create-room',
+									class: 'btn btn-success',
+									remote: true 
+		%>
+	</div>
+	<%= render partial: 'shared/spinner' %>
+</div>

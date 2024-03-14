@@ -1,0 +1,85 @@
+div#chat-panel
+  height: 500px
+  margin-bottom: 25px
+  &> h5
+    padding-bottom: 5px
+    border-bottom: 1px solid #cacaca
+    margin-top: 0
+
+div#chat-panel-messages, div#chat-panel-owner
+  overflow-y: scroll
+
+div#chat-panel-messages, div#chat-panel-form
+  padding: 5px 10px
+  background: #fafafa
+
+div#chat-panel-messages
+  margin-bottom: 8.38px
+  height: 72%
+  &> div.message-card
+    margin-bottom: 10px
+    border: 1px solid #bc8074
+    padding: 5px
+    background: #fff
+    border-radius: 5px
+    &> p
+      margin-bottom: 0
+    &> small
+      display: block
+      margin-bottom: 4px
+      text-transform: uppercase
+      font-weight: bold
+      color: #bc8074
+
+div#chat-panel-messages > div.message-card.sender
+  border: 1px solid #5f89be
+  &> small
+    color: #5f89be
+
+div#chat-panel-form
+  height: 20%
+  &> form
+    display: flex
+    flex-direction: row
+    &> div.form-group
+      flex: 5
+      &> textarea
+        resize: none
+    &> div.actions
+      flex: 1
+      margin-left: 5px
+      &> input
+        height: 83.1%
+
+div#chat-panel-create-room, div#chat-panel-log-in
+  background: #fafafa
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+
+div#chat-panel-owner
+  height: 100%
+  padding: 5px 0
+
+div.room-list
+  border-top: 1px solid #dadada
+  border-bottom: 1px solid #dadada
+  padding: 10px
+  background: #fff
+  display: block
+  &> a
+    text-transform: uppercase
+    font-weight: bold
+  &> p
+    margin-top: 5px
+    font-size: 13px
+
+div#rooms-list-back
+  position: relative
+  top: -15px
+
+@media (min-width: 992px)
+  div#chat-panel
+    margin-left: 20px

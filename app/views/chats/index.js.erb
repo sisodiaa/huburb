@@ -1,0 +1,3 @@
+$('a#chat-back').parent().remove();
+$('div#chat-panel-owner').parent()
+	.html("<%= escape_javascript(render(partial: 'chats/chat_panel_owner', locals: {page: @page})) %>");

@@ -1,0 +1,6 @@
+Turbolinks.clearCache();
+<% if @publish %>
+	Turbolinks.visit("<%= page_advertisements_path(@page) %>");
+<% else %>
+	Turbolinks.visit("<%= advertisement_path(@ad) %>");
+<% end %>

@@ -1,0 +1,9 @@
+<div class="col-md-3">
+	<div class="card ad-container">
+		<%= link_to ad_path(advertisement), remote: true do %>
+			<strong><%= advertisement.headline %></strong>
+			<hr>
+			<p><%= advertisement.body %></p>
+		<% end %>
+	</div>
+</div>

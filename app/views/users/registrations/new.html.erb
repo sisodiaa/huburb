@@ -1,0 +1,26 @@
+<div id="signup-form" class="col-sm-offset-3 col-sm-6">
+	<div class="card">
+		<%= form_for(resource, as: :user, url: user_registration_path, remote: true, authenticity_token: true) do |f| %>
+			<%= devise_error_messages! %>
+
+			<div class="form-group">
+				<%= f.label :email, class: "control-label" %><br />
+				<%= f.email_field :email, autofocus: true, class: 'field form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :password, class: "control-label" %><br />
+				<%= f.password_field :password, autocomplete: "off", class: 'field form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :password_confirmation, class: "control-label" %><br />
+				<%= f.password_field :password_confirmation, autocomplete: "off", class: 'field form-control' %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit "Sign up", class: 'btn btn-primary btn-block' %>
+			</div>
+		<% end %>
+	</div>
+</div>

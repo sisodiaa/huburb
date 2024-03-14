@@ -1,0 +1,35 @@
+<%= form_for logo, as: :logo, url: page_logo_path(page), remote: true, authenticity_token: true do |f| %>
+  <% if logo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(logo.errors.count, "error") %> prohibited this Logo from being saved:</h2>
+
+      <ul>
+      <% logo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div id="page-logo-section">
+		<div id="logo-thumbnail">
+			<%= image_tag page.logo_picture, alt: "Logo of #{page.name}" %>
+		</div>
+		<div>
+			<div class="form-group">
+				<%= f.label :picture, "Select Logo", class: "control-label" %><br>
+				<%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %>
+				<small>File size should not be more than 5MB</small>
+				<% %w(x y width height pic_w pic_h).each do |attribute| %>
+					<%= f.hidden_field "viewport_#{attribute}" %>
+				<% end %>
+			</div>
+			<div class="actions">
+				<% if page.logo.picture? %>
+					<%= link_to 'Reset Logo', page_logo_path(page), method: :delete, remote: true, class: 'btn btn-sm btn-danger' %>
+				<% end %>
+				<%= f.submit "Upload", class: 'btn btn-sm btn-success', 
+					data: { pin: page.pin, disable_with: "Uploading..." } %>
+			</div>
+		</div>
+	</div>
+<% end %>

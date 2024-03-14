@@ -1,0 +1,23 @@
+// Remove Validation Errors before rendering
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if error_present?(@profile, :username) %>
+	$('input#profile_username').parent().addClass("has-error");
+	$('input#profile_username').after("<%= escape_javascript(error_message(@profile, :username)) %>");
+<% end %>
+<% if error_present?(@profile, :first_name) %>
+	$('input#profile_first_name').parent().addClass("has-error");
+	$('input#profile_first_name').after("<%= escape_javascript(error_message(@profile, :first_name)) %>");
+<% end %>
+<% if error_present?(@profile, :gender) %>
+	$('select#profile_gender').parent().addClass("has-error");
+	$('select#profile_gender').after("<%= escape_javascript(error_message(@profile, :gender)) %>");
+<% end %>
+<% if error_present?(@profile, :date_of_birth) %>
+	$('input#profile_date_of_birth').parent().addClass("has-error");
+	$('input#profile_date_of_birth').after("<%= escape_javascript(error_message(@profile, :date_of_birth)) %>");
+<% end %>

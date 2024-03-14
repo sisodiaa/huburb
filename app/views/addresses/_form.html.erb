@@ -1,0 +1,46 @@
+<%= form_for @address, url: @address.form_submission_path, remote: true, authenticity_token: true do |f| %>
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% @address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :line1, 'Address Line 1', class: 'control-label' %><br>
+    <%= f.text_area :line1, class: 'field form-control', rows: 3 %>
+	</div>
+  <div class="form-group">
+    <%= f.label :line2, 'Address Line 2', class: 'control-label' %><br>
+    <%= f.text_area :line2, class: 'field form-control', rows: 3 %>
+	</div>
+  <div class="form-group">
+    <%= f.label :city, class: 'control-label' %><br>
+    <%= f.text_field :city , class: 'field form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state, class: 'control-label' %><br>
+    <%= f.text_field :state, class: 'field form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country, class: 'control-label' %><br>
+    <%= f.text_field :country, class: 'field form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :pincode %><br>
+    <%= f.text_field :pincode, class: 'field form-control' %>
+  </div>
+	<%= f.hidden_field :coordinates %>
+  <div class="actions">
+		<%= f.submit 'Locate on Map', class: 'btn btn-primary btn-block', data: { disable_with: 'Locating...' } %>
+		<%= f.submit class: 'btn btn-default btn-block', style: ( @address.new_record? ? "display: none" : "" ) %>
+		<% if @address.persisted? %>
+			<h5 style="margin-top: 3px;"><small>Select "Locate on Map" to update marker location</small></h5>
+		<% end %>
+  </div>
+<% end %>

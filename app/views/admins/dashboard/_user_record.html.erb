@@ -1,0 +1,23 @@
+<div id="record-panel" class="col-sm-offset-3 col-sm-6">
+	<h3 class="text-center"><%= "Details of #{user.email}" %></h3>
+	<table class="table table-hover table- table-condensed table-responsive table-borderless">
+		<tr>
+			<td class="text-right"><strong>Email</strong></td>
+			<td><%= user.email %></td>
+		</tr>
+		<tr>
+			<td class="text-right"><strong>Confirmed</strong></td>
+			<td><%= user.confirmed?.to_s %></td>
+		</tr>
+		<tr>
+			<td class="text-right"><strong>Pages Owned</strong></td>
+			<td>
+				<% user.pages.each do |page| %>
+					<table class="table table-condensed">
+						<tr><%= link_to page.name, dashboard_record_path('pages', page) %></tr>
+					</table>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+</div>

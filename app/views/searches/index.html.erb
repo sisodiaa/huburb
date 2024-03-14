@@ -1,0 +1,17 @@
+<div class="row">
+	<% Page::Category.list.merge({all: 'All Categories'}).each do |key, value| %>
+		<div class="col-xs-6 col-md-3">
+			<%= link_to search_path(key) do %>
+				<div class="category-box card">
+					<p id="name" class="text-center"><%= key.to_s.titleize %></p>
+					<p id="description" class="text-center"><%= value %></p>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+<div id="search-overlay">
+	<div id="search-overlay-container">
+		Fetching loaction
+	</div>
+</div>

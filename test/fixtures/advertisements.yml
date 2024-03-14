@@ -1,0 +1,25 @@
+discount:
+  headline: Discount on all courses
+  body: We are providing 10-40% discount on tuitions for all courses
+  published_at: <%= Time.zone.now - 1.hour %>
+  duration: 1
+  status: 1
+  location: POINT(77.368908 28.545610)
+  page: tution
+
+programming_offer:
+  headline: Computer programming classes
+  body: We are starting classes for computer programming. Early bird offeres available.
+  published_at: <%= Time.zone.now - 1.day - 1.hour %>
+  duration: 1
+  status: 2
+  location: POINT(77.368908 28.545610)
+  page: tution
+
+accounting_offer:
+  headline: Accounting classes
+  body: We are starting classes for accounting. Early bird offeres available.
+  duration: 1
+  status: 0
+  location: POINT(77.368908 28.545610)
+  page: tution

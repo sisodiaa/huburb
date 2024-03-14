@@ -1,0 +1,17 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+$('div.alert').remove();
+clearAlerts();
+
+$('#page-logo-section small').remove();
+$('#profile-avatar-section small').remove();
+$('input.btn-danger').prop('disabled', false);
+
+<% if error_present?(@picture, :picture) %>
+	$("input#avatar_picture").parent().addClass("has-error");
+	$("input#avatar_picture").after("<%= escape_javascript(error_message(@picture, :picture)) %>");
+	$("input#logo_picture").parent().addClass("has-error");
+	$("input#logo_picture").after("<%= escape_javascript(error_message(@picture, :picture)) %>");
+<% end %>

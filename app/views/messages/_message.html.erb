@@ -1,0 +1,4 @@
+<div class="message-card <%= message_room_sender == message.sender ? 'sender' : '' %>">
+	<small><%= message.sender.chat_handle %></small>
+	<p><%= message.content %></p>
+</div>

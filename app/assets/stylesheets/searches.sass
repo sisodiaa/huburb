@@ -1,0 +1,67 @@
+body#searches_show div#address-map
+  height: 500px
+
+div#search-overlay
+  position: fixed
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  background: rgba(0, 0, 0, 0.5)
+  z-index: 30
+  > div#search-overlay-container
+    position: relative
+    top: 10%
+    left: 50%
+    margin-left: -15rem
+    width: 30rem
+    background: white
+    border: 2px solid #e7e7e7
+    padding: 5px
+    font-size: 15px
+    
+div#search-overlay-container:after
+  overflow: hidden
+  display: inline-block
+  vertical-align: bottom
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite
+  animation: ellipsis steps(4,end) 900ms infinite
+  content: "\2026"
+  width: 0px
+
+@keyframes ellipsis
+  to
+    width: 20px
+
+@-webkit-keyframes ellipsis
+  to
+    width: 20px
+
+div.category-box
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin: 10px
+  border: 1px solid #337ab7
+  height: 200px
+  &> p#name
+    font-size: 3rem
+  &> p#description
+    font-size: 1.5rem
+
+div#search-results-controls > div
+  display: inline-block
+
+div#results-list
+  padding-left: 0
+
+div.result-row
+  margin: 0 5px 10px 0
+  font-size: 16px
+  &:hover
+    box-shadow: 0 0 1px 1px #d9d9d9
+    background-color: #fafafa
+
+@media (max-width: 992px)
+  div#results-list
+    padding-right: 0

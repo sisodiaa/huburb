@@ -1,0 +1,18 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if error_present?(resource, :email) %>
+	$("input#user_email").parent().addClass("has-error");
+	$("input#user_email").after("<%= escape_javascript(error_message(resource, :email)) %>");
+<% end %>
+<% if error_present?(resource, :password) %>
+	$("input#user_password").parent().addClass("has-error");
+	$("input#user_password").after("<%= escape_javascript(error_message(resource, :password)) %>");
+<% end %>
+<% if error_present?(resource, :password_confirmation) %>
+	$("input#user_password_confirmation").parent().addClass("has-error");
+	$("input#user_password_confirmation").after("<%= escape_javascript(error_message(resource, :password_confirmation)) %>");
+<% end %>

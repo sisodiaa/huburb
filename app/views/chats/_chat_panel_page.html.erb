@@ -1,0 +1,4 @@
+<%= render partial: 'chats/chat_panel_messages',
+					 locals: { room: room, message_room_sender: room.sender(current_user) } %>
+<%= render partial: 'chats/chat_panel_form', locals: { room: room } %>
+<%= render partial: 'shared/spinner' %>

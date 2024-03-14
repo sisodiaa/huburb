@@ -1,0 +1,9 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if error_present?(@message, :content) %>
+	$("textarea#message_content").parent().addClass("has-error");
+<% end %>

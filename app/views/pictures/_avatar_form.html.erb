@@ -1,0 +1,35 @@
+<%= form_for avatar, as: :avatar, url: user_avatar_path, remote: true, authenticity_token: true do |f| %>
+  <% if avatar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(avatar.errors.count, "error") %> prohibited this Avatar from being saved:</h2>
+
+      <ul>
+      <% avatar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div id="profile-avatar-section">
+		<div id="avatar-thumbnail">
+			<%= image_tag current_user.avatar_picture, alt: "Avatar of #{current_user.username}" %>
+		</div>
+		<div>
+			<div class="form-group">
+				<%= f.label :picture, "Select Avatar", class: "control-label" %><br>
+				<%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %>
+				<small>File size should not be more than 5MB</small>
+				<% %w(x y width height pic_w pic_h).each do |attribute| %>
+					<%= f.hidden_field "viewport_#{attribute}" %>
+				<% end %>
+			</div>
+			<div class="actions">
+				<% if current_user.profile.avatar.picture? %>
+					<%= link_to 'Reset Avatar', user_avatar_path, method: :delete, remote: true, class: 'btn btn-sm btn-danger' %>
+				<% end %>
+				<%= f.submit "Upload", class: 'btn btn-sm btn-success', 
+					data: { disable_with: "Uploading..." } %>
+			</div>
+		</div>
+	</div>
+<% end %>

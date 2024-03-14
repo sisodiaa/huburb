@@ -1,0 +1,22 @@
+<div id="login-form" class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
+	<h2>Admin Sign In</h2>
+
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<div class="form-group">
+			<%= f.label :email %><br />
+			<%= f.email_field :email, autofocus: true, class: "field form-control" %>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :password %><br />
+			<%= f.password_field :password, autocomplete: "off", class: "field form-control" %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit "Sign in", class: "btn btn-default btn-block" %>
+		</div>
+	<% end %>
+
+	<br>
+	<%= render "admins/shared/links" %>
+</div>

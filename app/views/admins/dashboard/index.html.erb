@@ -1,0 +1,53 @@
+<div id="dashboard-left-panel" class="col-sm-3">
+	<div class="list-group">
+		<% user_active = (@model == User) ? "active" : "" %>
+		<% page_active = (@model == Page) ? "active" : "" %>
+		<% invitee_active = (@model == Invitee) ? "active" : "" %>
+		<%= link_to dashboard_path('users'), class: "list-group-item #{user_active}" do %>
+			Users <span class="badge"><%= User.count %></span>
+		<% end %>
+		<%= link_to dashboard_path('pages'), class: "list-group-item #{page_active}" do %>
+			Pages <span class="badge"><%= Page.count %></span>
+		<% end %>
+		<%= link_to dashboard_path('invitees'), class: "list-group-item #{invitee_active}" do %>
+			Invitees <span class="badge"><%= Invitee.count %></span>
+		<% end %>
+	</div>
+</div>
+<div id="dashboard-right-panel" class="col-sm-9">
+	<table class="table table-striped card">
+		<% if @model == User %>
+			<thead>
+				<tr class="info">
+					<th>Email</th>
+					<th>Confirmed</th>
+					<th>Address</th>
+					<th>Pages</th>
+				</tr>
+			</thead>
+			<%= render partial: 'users_dashboard', collection: @records, as: :user %>
+		<% elsif @model == Invitee %>
+			<thead>
+				<tr class="info">
+					<th>Email</th>
+					<th>Full Name</th>
+					<th>City</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<%= render partial: 'invitees_dashboard', collection: @records, as: :invitee %>
+		<% else %>
+			<thead>
+				<tr class="info">
+					<th>Name</th>
+					<th>Pin</th>
+					<th>Owner</th>
+				</tr>
+			</thead>
+			<%= render partial: 'pages_dashboard', collection: @records, as: :page %>
+		<% end %>
+	</table>
+	<div class="text-center">
+		<%= paginate @records %>
+	</div>
+</div>

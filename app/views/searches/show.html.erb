@@ -1,0 +1,20 @@
+<div id="search-results-controls">
+	<div>
+		<%= link_to 'Back to Search', searches_path %>
+	</div>
+	<%= render partial: 'results_controls', locals: { prev_page: @prev, next_page: @next } unless @results.empty? %>
+</div>
+<div id="search-results" data-results="<%= @results.to_json %>">
+	<% unless @results.empty? %>
+	<div class="col-md-8 col-md-push-4 card margin-sides-15 margin-bottom-15">
+		<div id="address-map" 
+			data-coordinates="<%= session[:coordinates].gsub(/[POINT()]/,'').strip %>" data-environment="<%= Rails.env.test? %>">
+		</div>
+	</div>
+	<div id="results-list" class="col-md-4 col-md-pull-8 margin-sides-15 clearfix">
+	<% else %>
+	<div id="results-list" class="col-md-4 margin-sides-15 clearfix">
+	<% end %>
+		<%= render(partial: 'result', collection: @results) || render(partial: 'result_nil') %>
+	</div>
+</div>

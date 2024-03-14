@@ -1,0 +1,9 @@
+one_user:
+  room: one
+  memberable: user1
+  memberable_type: User
+
+one_page:
+  room: one
+  memberable: pizza
+  memberable_type: Page

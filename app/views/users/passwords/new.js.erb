@@ -1,0 +1,11 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+$('div.alert').remove();
+clearAlerts();
+
+<% if error_present?(resource, :email) %>
+	$("input#user_email").parent().addClass("has-error");
+	$("input#user_email").after("<%= escape_javascript(error_message(resource, :email)) %>");
+<% end %>

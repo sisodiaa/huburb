@@ -1,0 +1,16 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if @imageable.class == Profile %>
+	$('div#profile-avatar-form').html("<%= j(render partial: 'pictures/avatar_form', locals: {avatar: @picture}) %>");
+	$('a#navigation-avatar img').prop("src", "<%= current_user.avatar_picture %>");
+<% else %>
+		$('div#page-logo-form').
+		html("<%= j(render partial: 'pictures/logo_form', locals: {page: @imageable, logo: @picture}) %>");
+	$('a#navigation-avatar img').prop("src", "<%= @imageable.logo_picture %>");
+<% end %>
+
+$('div.actions a.btn-danger').remove();

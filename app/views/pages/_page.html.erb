@@ -1,0 +1,6 @@
+<% if current_user.pages.include?(page) %>
+	<div id="page-card-<%= page.pin %>" class="card margin-bottom-15">
+		<h3><%= link_to page.name, page %></h3>
+		<%= render partial: 'page_controls', locals: { page: page, dashboard: true } %>
+	</div>
+<% end %>

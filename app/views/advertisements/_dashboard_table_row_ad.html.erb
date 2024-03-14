@@ -1,0 +1,22 @@
+<tr data-ad="<%= ad.id %>">
+	<td><%= ad.headline %></td>
+	<td><%= ad.status.titleize %></td>
+	<td class="text-center"><%= ad.ad_viewers.sum(:view) %></td>
+	<td class="text-center"><%= ad.ad_viewers.sum(:click) %></td>
+	<td class="ad-dashboard-controls">
+		<div class="btn-group">
+			<%= link_to 'Preview', ad, class: 'btn btn-xs btn-default' %>
+			<%= link_to 'Edit', edit_advertisement_path(ad), class: 'btn btn-xs btn-default' %>
+			<% unless ad.published? %>
+				<%= link_to 'Delete', ad, method: :delete, remote: true,
+					data: {confirm: 'Are you sure?'}, class:  'btn btn-xs btn-default' %>
+			<% end %>
+		</div>
+		<% if ad.pending? %>
+			<%= button_to 'Publish', ad, method: :put, remote: true, 
+				params: { advertisement: { publish: true } }, data: { disable_with: 'Publishing' },
+				class: 'btn btn-xs btn-success'
+			%>
+		<% end %>
+	</td>
+</tr>

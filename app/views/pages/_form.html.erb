@@ -1,0 +1,46 @@
+<% if @page.persisted? %>
+	<div id="page-logo-form" class="card margin-sides-15">
+		<%= render partial: "pictures/logo_form", locals: {page: @page, logo: @logo} %>
+	</div>
+	<div id="page-logo-overlay">
+		<div id="logo-container" class="text-right">
+			<%= link_to 'Crop', '#', class: 'btn btn-primary' %>
+			<%= link_to 'Cancel', '#', class: 'btn btn-danger' %>
+		</div>
+	</div>
+<% end %>
+<br>
+<div class="card margin-sides-15">
+<%= form_for [(@page.new_record? ? :user : nil), @page], remote: true, authenticity_token: true do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: "control-label" %><br>
+    <%= f.text_field :name, class: 'field form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "control-label" %><br>
+    <%= f.text_area :description, rows: 5, class: 'field form-control' %>
+  </div>
+	<div class="form-group">
+		<%= f.label :category, class: "control-label" %><br>
+		<%= f.select :category, 
+			Page::Category.list.to_a.map { |e| ["#{e[0].to_s.titleize} (#{e[1]})", e[0]] }, 
+			{}, class: 'field form-control' 
+		%>
+	</div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary btn-block' %>
+  </div>
+<% end %>
+</div>

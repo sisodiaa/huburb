@@ -1,0 +1,19 @@
+<div class="col-md-offset-1 col-md-10 margin-bottom-15">
+	<div id="page-container">
+		<div id="page-logo-section-show">
+			<div>
+				<%= image_tag page.logo_picture %>
+			</div>
+			<div>
+				<h1><%= link_to page.name, page_path(page) %></h1>
+				<% if !is_post && page.owner == current_user %>
+					<%= render partial: 'pages/page_controls', locals: { page: page, dashboard: false } %>
+				<% end %>
+				<%= render partial: 'posts/post_controls', locals: { page: page, post: post, is_post: is_post } %>
+				<% if page.owner == current_user %>
+					<%= render partial: 'advertisements/page_ad_dashboard', locals: { page: page } %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

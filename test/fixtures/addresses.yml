@@ -1,0 +1,76 @@
+home:
+  pincode: 201304
+  city: Noida
+  state: Uttar Pradesh
+  country: India
+  line1: 701, Tower 1
+  line2: Lotus Boulevard, Sector 100
+  location: POINT(77.369413 28.544845)
+  locatable: user1
+  locatable_type: User
+
+home3:
+  pincode: 201304
+  city: Noida
+  state: Uttar Pradesh
+  country: India
+  line1: 701, Tower 1
+  line2: Lotus Boulevard, Sector 100
+  location: POINT(77.369413 28.544845)
+  locatable: user3
+  locatable_type: User
+
+no_user:
+  pincode: 249408
+  city: Haridwar
+  state: Uttarakhand
+  country: India
+  line1: 19B, Vishnu Vihar
+  line2: Near Police Kotwali, Kankhal
+  location: POINT(78.142776 29.927555)
+  locatable: 
+  locatable_type: 
+
+tution:
+  pincode: 201304
+  city: Noida 
+  state: Uttar Pradesh
+  country: India
+  line1: Planet Lotier
+  line2: Lotus, Boulevard, Sector 100
+  location: POINT(77.368908 28.545610)
+  locatable: tution
+  locatable_type: Page
+
+pizza:
+  pincode: 201304
+  city: Noida 
+  state: Uttar Pradesh
+  country: India
+  line1: 1st Floor, Shopping Planet
+  line2: Block-C, Sector-48
+  location: POINT(77.373101 28.556321)
+  locatable: pizza
+  locatable_type: Page
+
+barfi:
+  pincode: 201304
+  city: Noida
+  state: Uttar Pradesh
+  country: India
+  line1: 515, D block
+  line2: Hazipur, Sector 104
+  location: POINT(77.364979 28.538630)
+  locatable: barfi
+  locatable_type: Page
+
+breaktym:
+  pincode: 201304
+  city: Noida
+  state: Uttar Pradesh
+  country: India
+  line1: 525, D block
+  line2: Hazipur, Sector 104
+  location: POINT(77.364977 28.538632)
+  locatable: breaktym
+  locatable_type: Page

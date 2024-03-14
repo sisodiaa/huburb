@@ -1,0 +1,6 @@
+Turbolinks.clearCache();
+<% if resource.confirmed? %>
+	Turbolinks.visit("<%= controller.after_sign_in_path_for(resource) %>");
+<% else %>
+	Turbolinks.visit("<%= new_user_session_path %>");
+<% end %>

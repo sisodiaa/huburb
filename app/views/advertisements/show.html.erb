@@ -1,0 +1,69 @@
+<div class="row">
+	<%= link_to '< Back to Dashboard', page_advertisements_path(@page) %>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<h2>Preview</h2>
+		<%= render @ad %>
+		<% if @ad.pending? %>
+			<%= button_to 'Publish', @ad, method: :put, remote: true, 
+				params: { advertisement: { publish: true } }, data: { disable_with: 'Publishing' },
+				class: 'btn btn-success'
+			%>
+		<% end %>
+	</div>
+	<div class="col-md-5 table-responsive">
+		<h2>Details</h2>
+		<table class="card table table-hover table-bordered">
+			<tbody>
+				<tr>
+					<td><strong>Headline</strong></td>
+					<td><%= @ad.headline %></td>
+				</tr>
+				<tr>
+					<td><strong>Body</strong></td>
+					<td><%= @ad.body %></td>
+				</tr>
+				<tr>
+					<td><strong>Page</strong></td>
+					<td><%= @page.name %></td>
+				</tr>
+				<tr>
+					<td><strong>Duration</strong></td>
+					<td><%= @ad.duration %> days</td>
+				</tr>
+				<tr>
+					<td><strong>Status</strong></td>
+					<td><%= @ad.status.titleize %></td>
+				</tr>
+				<tr>
+					<td><strong>Impressions</strong></td>
+					<td><%= @ad.ad_viewers.sum(:view) %></td>
+				</tr>
+				<tr>
+					<td><strong>Clicks</strong></td>
+					<td><%= @ad.ad_viewers.sum(:click) %></td>
+				</tr>
+				<tr>
+					<td><strong>Created at</strong></td>
+					<td><%= @ad.created_at.strftime("%B %d, %Y") %></td>
+				</tr>
+				<tr>
+					<td><strong>Published on</strong></td>
+					<td><%= @ad.published_at.nil? ? 'Not yet published' : @ad.published_at %></td>
+				</tr>
+				<tr>
+					<td><strong>Expired on</strong></td>
+					<td><%= @ad.published_at.nil? ? 'Not yet published' : @ad.expired_at %></td>
+				</tr>
+			</tbody>
+		</table>
+		<% unless @ad.archived? %>
+			<%= link_to 'Edit', edit_advertisement_path(@ad), class:  'btn btn-default' %>
+		<% end %>
+		<% unless @ad.published? %>
+			<%= link_to 'Delete', @ad, method: :delete, remote: true,
+				data: {confirm: 'Are you sure?'}, class:  'btn btn-danger' %>
+		<% end %>
+	</div>
+</div>

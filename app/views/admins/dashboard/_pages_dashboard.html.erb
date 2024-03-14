@@ -1,0 +1,5 @@
+<tr>
+	<td><%= link_to page.name, dashboard_record_path('pages', page) %></td>
+	<td><%= page.pin %></td>
+	<td><%= link_to page.owner.email, dashboard_record_path('users', page.owner) %></td>
+</tr>

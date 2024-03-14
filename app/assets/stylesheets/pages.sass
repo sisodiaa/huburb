@@ -1,0 +1,48 @@
+div#page-description
+  margin-top: 20px
+  margin-bottom: 25px
+
+div#map-container h5, div#page-description h5
+  padding-bottom: 5px
+  border-bottom: 1px solid #cacaca
+  margin-top: 0
+
+div#address-text
+  line-height: 1.5
+  padding-left: 0
+  padding-top: 10px
+
+div#page-logo-section-show > div
+  display: inline-block
+  margin-right: 15px
+  vertical-align: bottom
+
+.page-list-heading
+  padding-left: 0
+  padding-right: 0
+  font-size: 20px
+  color: #666
+  &> small
+    font-size: 12px
+
+div#page-logo-overlay
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+  background: rgba(0, 0, 0, 0.5)
+  z-index: 30
+  > div#logo-container
+    position: relative
+    top: 10%
+    background: white
+    border: 2px solid #e7e7e7
+    padding: 5px
+    > a
+      margin: 10px 3px 5px 3px
+
+@media screen and (min-width: 768px)
+  div#page-container
+    position: relative

@@ -1,0 +1,18 @@
+$('div#page-logo-section-show > div:last-child')
+	.append("<%= escape_javascript(render(partial: 'page_chat_control', locals: {page: @page})) %>");
+$('div#chat-panel-owner')
+	.html("<%= escape_javascript(render(partial: 'chat_panel_page', locals: {room: @room})) %>");
+$('div#chat-panel-messages').animate({scrollTop: $('div#chat-panel-messages').prop('scrollHeight')}, 500);
+
+$('#chat-back').click(function(e) {
+	$('div#chat-panel-messages').remove();
+	$('div#chat-panel-form').remove();
+	$('.sk-fading-circle').removeClass('spinner-hidden');
+});
+
+if(document.getElementById('chat-panel-messages')) {
+	var chat_room_id = $('#chat-panel-messages').data('chat-room');
+	if(!App["chat_room_" + chat_room_id]) {
+		createChatRoomSubscription(chat_room_id);
+	}
+}

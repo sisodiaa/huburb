@@ -1,0 +1,7 @@
+<div class="room-list" id="room-<%= room.id %>">
+	<%= link_to room.recipient(current_user).chat_handle, chatroom_path(room), remote: true %>
+	<p>
+		<%= room.messages.last.try(:sender).try(:chat_handle) %>:
+		<%= truncate(room.messages.last.try(:content), length: 50, separator: ' ') %>
+	</p>
+</div>

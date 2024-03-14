@@ -1,0 +1,41 @@
+<div class="col-md-2 margin-bottom-15">
+	<div class="profile-section">
+		<div class="profile-content">
+			<%= image_tag @profile.user.avatar_picture, class: "img-thumbnail profile-avatar" %>
+		</div>
+		<div class="profile-content">
+			<h4><%= @profile.full_name %></h4>
+			<h4><%= @profile.username %></h4>
+			<% if current_user.profile == @profile %>
+				<ul class="list-group">
+					<li class="list-group-item"><%= link_to 'Manage Profile', edit_user_profile_path %></li>
+					<li class="list-group-item">
+						<%= link_to 'Manage Pages', user_pages_path %>
+					</li>
+				</ul>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-10">
+	<div id="map-container" class="clearfix card margin-sides-15">
+		<h4><strong>Address</strong></h4>
+		<% if @address.nil? %>
+			<% if current_user.profile == @profile %>
+				<%= link_to 'Add Address', new_user_address_path, class: 'btn btn-success' %>
+			<% else %>
+				<p>Address not given.</p>
+			<% end %>
+		<% else %>
+			<div id="address-text" class="col-md-3" style="line-height: 1.5;">
+				<%= render partial: 'addresses/address', object: @address, as: :address %>
+			</div><!-- Address -->
+			<div class="col-md-9 padding-sides-zero">
+				<div id="address-map" data-title="<%= @profile.username %>" 
+					data-coordinates="<%= @address.coordinates %>" data-environment="<%= Rails.env.test? %>">
+				</div><!-- Google Map -->
+			</div>
+		<% end %>
+	</div>
+</div>

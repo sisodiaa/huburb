@@ -1,0 +1,5 @@
+discount_user2:
+  view: 30
+  click: 10
+  viewer: user2
+  ad: discount

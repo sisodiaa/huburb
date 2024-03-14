@@ -1,0 +1,7 @@
+<div class="col-md-3">
+	<%= render partial: "shared/account_settings", locals: { selection: "profile" } %>
+</div>
+<div id="profile-edit-form" class="col-md-6">
+	<h2>Edit Profile</h2>
+	<%= render 'users/profile/form', object: @profile %>
+</div>

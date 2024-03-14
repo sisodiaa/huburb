@@ -1,0 +1,12 @@
+<div class="post-title">
+	<h3><%= post.title.titleize %></h3>
+	<% if post.pinned %>
+		<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+		<span class="label label-default">Pinned</span>
+	<% end %>
+</div>
+<div class="trix-content">
+	<%= truncate(strip_tags(post.body), length: 50, separator: ' ') do %>
+		<small><%= link_to 'Read more', page_post_path(page, post) %></small>
+	<% end %>
+</div>

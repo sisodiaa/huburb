@@ -1,0 +1,47 @@
+<div class="col-md-3">
+	<%= render partial: "shared/account_settings", locals: { selection: "account" } %>
+</div>
+<div id="account-edit-form" class="col-md-6">
+	<div class="card margin-bottom-15 margin-sides-15">
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true, authenticity_token: true, html: { method: :put }) do |f| %>
+			<%= devise_error_messages! %>
+
+			<div class="form-group">
+				<%= f.label :email, class: "control-label" %><br />
+				<%= f.email_field :email, autofocus: true, class: 'field form-control', disabled: true %>
+			</div>
+
+			<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+				<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+			<% end %>
+
+			<div class="form-group">
+				<%= f.label :current_password, class: "control-label" %><br />
+				<%= f.password_field :current_password, autocomplete: "off", class: 'field form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :password, class: "control-label" %> <i>(leave blank if you don't want to change it)</i><br />
+				<%= f.password_field :password, autocomplete: "off", class: 'field form-control' %>
+				<% if @minimum_password_length %>
+					<em><%= @minimum_password_length %> characters minimum</em>
+				<% end %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :password_confirmation, class: "control-label" %><br />
+				<%= f.password_field :password_confirmation, autocomplete: "off", class: 'field form-control' %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit "Update", class: 'btn btn-primary btn-block' %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="card margin-sides-15">
+		<%= button_to "Delete Account", registration_path(resource_name), 
+			data: { confirm: "Are you sure?" }, method: :delete, remote: true,
+			class: 'btn btn-danger' %>
+	</div>
+</div>

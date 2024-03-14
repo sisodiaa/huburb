@@ -1,0 +1,11 @@
+message_from_user:
+  content: Hi! I am user one
+  room: one
+  sender: user1
+  sender_type: User
+
+message_from_page:
+  content: I am a page named Dominos Pizza
+  room: one
+  sender: pizza
+  sender_type: Page

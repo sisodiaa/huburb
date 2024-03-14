@@ -1,0 +1,14 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if error_present?(@post, :title) %>
+	$("input#post_title").parent().addClass("has-error");
+	$("input#post_title").after("<%= escape_javascript(error_message(@post, :title)) %>");
+<% end %>
+<% if error_present?(@post, :body) %>
+	$("textarea#post_body").parent().addClass("has-error");
+	$("textarea#post_body").after("<%= escape_javascript(error_message(@post, :body)) %>");
+<% end %>

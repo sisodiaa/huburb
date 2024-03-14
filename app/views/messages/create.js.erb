@@ -1,0 +1,4 @@
+$('textarea#message_content').val('');
+$('div#chat-panel-messages')
+	.append("<%= escape_javascript(render(partial: 'message', object: @message, locals: { room: @room })) %>");
+$('div#chat-panel-messages').animate({scrollTop: $('div#chat-panel-messages').prop('scrollHeight')}, 500);

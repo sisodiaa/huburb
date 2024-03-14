@@ -1,0 +1,29 @@
+// Remove Validation Errors before rendering
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if @address.isValid? %>
+	$("input[value='Locating...']").removeAttr('data-disable-with');
+	drawMap("<%= escape_javascript(current_user.username) %>", <%= Rails.env.test? %>);
+<% else %>
+	// Display Validation Errors
+	<% if error_present?(@address, :base) %>
+		$("textarea").parent().addClass("has-error");
+		$("textarea").after("<%= escape_javascript(error_message(@address, :base)) %>");
+	<% end %>
+	<% if error_present?(@address, :city) %>
+		$("input#address_city").parent().addClass("has-error");
+		$("input#address_city").after("<%= escape_javascript(error_message(@address, :city)) %>");
+	<% end %>
+	<% if error_present?(@address, :state) %>
+		$("input#address_state").parent().addClass("has-error");
+		$("input#address_state").after("<%= escape_javascript(error_message(@address, :state)) %>");
+	<% end %>
+	<% if error_present?(@address, :country) %>
+		$("input#address_country").parent().addClass("has-error");
+		$("input#address_country").after("<%= escape_javascript(error_message(@address, :country)) %>");
+	<% end %>
+<% end %>

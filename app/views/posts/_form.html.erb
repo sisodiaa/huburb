@@ -1,0 +1,30 @@
+<%= form_for([@page, @post], remote: true) do |f| %>
+	<% if @post.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+			<ul>
+				<% @post.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="form-group">
+		<%= f.label :title, class: "control-label" %><br>
+		<%= f.text_field :title, class: "field form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :body, class: "control-label" %><br>
+		<%= f.hidden_field :body %>
+		<trix-editor input="post_body" class="trix-content"></trix-editor>
+	</div>
+	<div>
+		<%= f.check_box :pinned, { class: "inline" } %>
+		<%= f.label :pinned, 'Pin this post', class: 'control-label' %>
+	</div>
+	<div class="actions">
+		<%= f.submit class: "btn btn-primary btn-block" %>
+	</div>
+<% end %>

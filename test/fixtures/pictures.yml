@@ -1,0 +1,14 @@
+valid:
+  picture: 'valid.jpg'
+  imageable: user2
+  imageable_type: Profile
+
+valid3:
+  picture: 'valid.jpg'
+  imageable: user3
+  imageable_type: Profile
+
+logo:
+  picture: 'valid.jpg'
+  imageable: pizza
+  imageable_type: Page

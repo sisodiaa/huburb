@@ -1,0 +1,21 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if error_present?(@page, :name) %>
+	$("input#page_name").parent().addClass("has-error");
+	$("input#page_name").after("<%= escape_javascript(error_message(@page, :name)) %>");
+<% end %>
+<% if error_present?(@page, :description) %>
+	$("textarea#page_description").parent().addClass("has-error");
+	$("textarea#page_description").after("<%= escape_javascript(error_message(@page, :description)) %>");
+<% end %>
+<% if error_present?(@page, :category) %>
+	$("select#page_category").parent().addClass("has-error");
+	$("select#page_category").after("<%= escape_javascript(error_message(@page, :category)) %>");
+<% end %>
+<% if error_present?(@page, :pages_per_user_quota) %>
+	addAlert('danger', "<%= @page.errors[:pages_per_user_quota].to_sentence %>");
+<% end %>

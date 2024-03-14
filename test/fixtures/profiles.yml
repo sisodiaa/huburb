@@ -1,0 +1,23 @@
+user1:
+  username: user1
+  first_name: User
+  last_name: One
+  gender: <%= Profile.genders[:male] %>
+  date_of_birth: 1985-09-07
+  user: user1
+
+user2:
+  username: user2
+  first_name: User
+  last_name: Two
+  gender: <%= Profile.genders[:female] %>
+  date_of_birth: 1983-10-05
+  user: user2
+
+user3:
+  username: user3
+  first_name: User
+  last_name: Three
+  gender: <%= Profile.genders[:male] %>
+  date_of_birth: 1983-05-03
+  user: user3

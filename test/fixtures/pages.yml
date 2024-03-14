@@ -1,0 +1,53 @@
+tution:
+  name: Coaching Center
+  description: >
+    A coaching center to cater educational needs of youth and children of today. We help our students in their 
+    pursuit of excellence in education and other fields.
+  category: <%= Page.categories[:education] %>
+  owner: user1
+  pin: w9mn2x
+
+saloon:
+  name: Voila Saloon
+  description: >
+    A unisex saloon within the premise of Lotus Boulevard in Sector 100 of Noida, catering to the needs of its 
+    residents. We offer our services at attractive and reasonable prices.
+  category: <%= Page.categories[:grooming] %>
+  owner: user1
+  pin: hekw2m
+
+tiffin:
+  name: Tiffin Center
+  description: >
+    We provide tiffin for bachelors and on-demand in and around sector 100 of Noida. We use fresh produce for 
+    making the most delicious food that satisfies your taste and nourishes you.
+  category: <%= Page.categories[:food] %>
+  pin: dsf3iu
+
+pizza:
+  name: Dominos Pizza
+  description: >
+    Best Italian pizza ans pastas in and around sector 48. We provide dine-in and delivery of the best and hot 
+    italian food. We provide delivery within 30 minutes or your order will be free.
+  category: <%= Page.categories[:food] %>
+  owner: user2
+  pin: nw8lk3
+
+barfi:
+  name: Barfi
+  description: >
+    A restaurant near sector 105. We provide dine-in and take away. We specialize in Indian sweets and other
+    Indian delicacies, ranging from Punjabi dishes to South Indian Dishes, Gujrati to Bengali dishes.
+  category: <%= Page.categories[:food] %>
+  owner: user2
+  pin: io7ip7
+
+breaktym:
+  name: Breaktym
+  description: >
+    A food cart serving tasty and hygenic food. We operate around sector 100 in Noida. Please come and have a 
+    look at our menu. Our food is one of the best in Noida and NCR. We pay special attention to cleanliness
+    and nutritions.
+  category: <%= Page.categories[:food] %>
+  owner: user1
+  pin: neqmw4

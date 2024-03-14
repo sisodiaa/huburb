@@ -1,0 +1,19 @@
+if(document.body.id != 'searches_show') {
+	window.location.href = document.location.href;
+} else {
+	document.getElementById('search-results').setAttribute('data-results', "<%= j @results.to_json.html_safe %>");
+	
+	$('div#navigation-links').remove();
+
+	$('div#search-results-controls')
+	.append("<%= j (render partial: 'results_controls', locals: { prev_page: @prev, next_page: @next }) %>");
+	
+	$('div#results-list')
+	.html("<%= j (render(partial: 'result', collection: @results) || render(partial: 'result_nil')) %>");
+	
+	if(document.location.href.match(/\?/)) {
+		resultMap(<%= raw @results.to_json %>);
+	}
+	
+	bindNavigationLink();
+}

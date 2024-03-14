@@ -1,0 +1,5 @@
+<% if @model == User %>
+	<%= render partial: 'user_record', locals: {user: @record} %>
+<% else %>
+	<%= render partial: 'page_record', locals: {page: @record} %>
+<% end %>

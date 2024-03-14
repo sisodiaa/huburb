@@ -1,0 +1,10 @@
+<div id="chat-panel-form">
+	<%= form_for(Message.new, url: message_path(room), remote: true) do |f| %>
+		<div class="form-group">
+			<%= f.text_area :content, rows: 3, class: 'field form-control' %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Send", class: 'btn btn-success btn-block' %>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Huburb</title>
+    <%= csrf_meta_tags %>
+
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
+		<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAdZpcBJONm9yho_VGkwAg5Mt3W2krot30", async: Rails.env.production?, defer: Rails.env.production? %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+	<body id="<%= controller_name %>_<%= action_name %>">
+		<%= render "shared/admin_navigation" %>
+
+		<div id="content-container" class="container-fluid">
+			<div id="dashboard-parent-row" class="row">
+				<%= flash_messages %>
+				<%= yield %>
+			</div>
+		</div>
+  </body>
+</html>

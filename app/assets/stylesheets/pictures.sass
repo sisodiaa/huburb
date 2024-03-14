@@ -1,0 +1,38 @@
+div#profile-avatar-overlay
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+  background: rgba(0, 0, 0, 0.5)
+  z-index: 30
+  > div#avatar-container
+    position: relative
+    top: 10%
+    background: white
+    border: 2px solid #e7e7e7
+    padding: 5px
+    > a
+      margin: 10px 3px 5px 3px
+
+.profile-avatar
+  max-width: 165px
+
+#navigation-avatar
+  padding-top: 5px
+  padding-bottom: 5px
+  & > img
+    max-width: 40px
+    max-height: 40px
+    width: auto
+    height: auto
+
+div#avatar-thumbnail, div#logo-thumbnail
+  overflow: hidden
+  width: 200px
+  height: 200px
+
+@media (max-width: 1200px)
+  .profile-avatar
+    max-width: 150px

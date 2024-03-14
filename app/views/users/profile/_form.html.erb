@@ -1,0 +1,51 @@
+<% if @profile.persisted? %>
+	<div id="profile-avatar-form" class="card margin-sides-15">
+		<%= render partial: 'pictures/avatar_form', locals: {avatar: @avatar} %>
+	</div>
+	<div id="profile-avatar-overlay">
+		<div id="avatar-container" class="text-right">
+			<%= link_to 'Crop', '#', class: 'btn btn-primary' %>
+			<%= link_to 'Cancel', '#', class: 'btn btn-danger' %>
+		</div>
+	</div>
+<% end %>
+<br>
+<div class="card margin-sides-15">
+<%= form_for @profile, url: user_profile_path, remote: true, authenticity_token: true do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :username, class: "control-label" %><br>
+    <%= f.text_field :username, class: 'field form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :first_name, class: "control-label" %><br>
+    <%= f.text_field :first_name, class: 'field form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, class: "control-label" %><br>
+		<%= f.text_field :last_name, class: 'field form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :gender, class: "control-label" %><br>
+		<%= f.select :gender, Profile.genders.keys.to_a.map {|w| [w.to_s.humanize, w]}, {}, class: 'field form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :date_of_birth, class: "control-label" %>
+		<%= f.date_field :date_of_birth, value: @profile.date_of_birth || Date.today.strftime('%Y-%m-%d'), class: 'field form-control' %>
+	</div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary btn-block' %>
+  </div>
+<% end %>
+</div>

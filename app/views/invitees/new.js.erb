@@ -1,0 +1,14 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+
+<% if error_present?(@invitee, :full_name) %>
+	$("input#invitee_full_name").parent().addClass("has-error");
+	$("input#invitee_full_name").after("<%= escape_javascript(error_message(@invitee, :full_name)) %>");
+<% end %>
+
+<% if error_present?(@invitee, :email) %>
+	$("input#invitee_email").parent().addClass("has-error");
+	$("input#invitee_email").after("<%= escape_javascript(error_message(@invitee, :email)) %>");
+<% end %>

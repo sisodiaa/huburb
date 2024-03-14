@@ -1,0 +1,26 @@
+<div class="row">
+	<div id="create-ad-button" class="col-md-3">
+		<%= link_to 'Create Advertisement', new_page_advertisement_path(@page), class: 'btn btn-success btn-block' %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<table id="ad-dashboard-table" class="card table table-bordered">
+			<thead>
+				<tr>
+					<th>Headline</th>
+					<th>Status</th>
+					<th>Impressions</th>
+					<th>Clicks</th>
+					<th>Controls</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%= render partial: 'dashboard_table_row_ad', collection: @ads, as: :ad %>
+			</tbody>
+		</table>
+		<div class="text-center">
+			<%= paginate @ads %>
+		</div>
+	</div>
+</div>

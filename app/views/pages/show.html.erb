@@ -1,0 +1,63 @@
+<div class="row">
+	<%= render partial: 'page_panel', locals: { page: @page, post: nil, is_post: false } %>
+</div>
+<div class="row">
+	<div class="col-md-offset-1 col-md-4">
+		<div class="row">
+			<div id="page-description" class="card">		
+				<h5><strong>Description</strong></h5>
+				<p><%= @page.description %></p>
+			</div>
+		</div>
+		<% unless @address.nil? %>
+		<div class="row">
+			<div id="map-container" class="card">
+				<h5><strong>Address</strong></h5>
+				<div class="padding-sides-zero">
+					<div id="address-map" data-title="<%= @page.name %>" 
+						data-coordinates="<%= @address.coordinates %>" data-environment="<%= Rails.env.test? %>">
+					</div>
+				</div>
+				<div id="address-text">
+					<%= render @address %>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<div class="col-md-7">
+		<div class="row">
+			<div id="posts-panel" class="card">
+				<h5><strong>Recent Posts</strong></h5>
+				<% if @posts.empty? %>
+					<p class="text-center"><%= @page.name.titleize %> has not posted anythnig yet.</p>
+				<% else %>
+					<%= render partial: 'posts/posts_panel', collection: @posts, as: :post, locals: { page: @page } %>
+					<p class="text-center">
+						<%= link_to 'More Posts', page_posts_path(@page) %>
+					</p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div id="chat-panel" class="card">
+				<% if user_signed_in? %>
+					<% if @page_owner_is_current_user || @room %>
+						<h5><strong>Chats</strong></h5>
+					<% end %>
+					<% if @page_owner_is_current_user %>
+						<%= render partial: 'chats/chat_panel_owner', locals: { page: @page } %>
+					<% else %>
+						<% if @room %>
+							<%= render partial: 'chats/chat_panel_visitor', locals: { room: @room } %>
+						<% else %>
+							<%= render partial: 'chats/chat_panel_create_room', locals: { page: @page } %>
+						<% end %>
+					<% end %>
+				<% else %>
+					<%= render partial: 'chats/unauthenticated_user', locals: { page: @page } %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

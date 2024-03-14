@@ -1,0 +1,23 @@
+welcome:
+  title: Welcome to our coaching center
+  body: We provide best education to you. Our students are able to crack toughest competitions with ease.
+  pinned: true
+  page: tution
+
+competition:
+  title: Coaching for engineering enterance examinations
+  body: We are starting crash course for IIT-JEE preparation, we will teach Physics, Chemistry, and Mathematics.
+  pinned: true
+  page: tution
+
+programming:
+  title: Programming classes for homemakers
+  body: We are starting classes to teach fundamentals of programming in javascript to homemakers and housewives.
+  pinned: false
+  page: tution
+
+accounting:
+  title: Accounting classes
+  body: We also cater to commerce students, and help them in understanding the fundamentals of the accounts.
+  pinned: false
+  page: tution

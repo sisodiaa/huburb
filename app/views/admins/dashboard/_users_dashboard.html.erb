@@ -1,0 +1,6 @@
+<tr>
+	<td><%= link_to user.email, dashboard_record_path('users', user) %></td>
+	<td><%= "Yes" if user.confirmed? %></td>
+	<td><%= "Yes" if user.address %></td>
+	<td><%= user.pages.count if user.pages.count > 0 %></td>
+</tr>

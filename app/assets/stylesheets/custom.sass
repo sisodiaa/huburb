@@ -1,0 +1,66 @@
+/*===================================Global===================================*/
+body
+  background: #fafafa
+
+p
+  font-family: 'Roboto', sans-serif
+  font-size: 15px
+
+h1, h2, h3, h4, h5, h6, span
+  font-family: 'Source Sans Pro', sans-serif
+
+.table-borderless tr td
+  border: none !important
+
+.card
+  border: 1px solid #dadada
+  padding: 15px
+  background: #fff
+  &> h1, h2, h3, h4, h5, h6
+    margin-top: 10px
+
+.margin-bottom-15
+  margin-bottom: 15px
+
+.margin-sides-zero
+  margin-left: 0
+  margin-right: 0
+
+.margin-right-15
+  margin-right: 15px
+
+.padding-sides-zero
+  padding-left: 0
+  padding-right: 0
+
+a:link, a:visited, a:hover, a:active
+  text-decoration: none
+
+/*===================================Common===================================*/
+div#account-edit-form h2, div#profile-edit-form h2, div#address-edit-form h2, div#page-edit-form h2
+  margin-top: 0
+
+div#profile-avatar-section > div, div#page-logo-section > div
+  display: inline-block
+  margin-right: 5px
+  vertical-align: bottom
+
+div#dashboard-parent-row
+  margin-left: 10px
+  margin-right: 10px
+
+div#form-map-container div#address-map
+  height: 500px
+
+div#settings-list > a
+  border-radius: 0
+
+@media (max-width: 768px)
+  .margin-sides-15
+    margin-left: 15px
+    margin-right: 15px
+
+@media (max-width: 768px)
+  div#profile-edit-form, div#account-edit-form, div#page-edit-form, div#address-edit-container
+    padding-left: 0
+    padding-right: 0

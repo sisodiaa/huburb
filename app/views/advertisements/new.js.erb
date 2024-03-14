@@ -1,0 +1,18 @@
+$('.has-error').each(function() {
+	$(this).removeClass('has-error');
+});
+$('small.help-block').remove();
+clearAlerts();
+
+<% if error_present?(@ad, :headline) %>
+	$("input#advertisement_headline").parent().addClass("has-error");
+	$("input#advertisement_headline").after("<%= escape_javascript(error_message(@ad, :headline)) %>");
+<% end %>
+<% if error_present?(@ad, :body) %>
+	$("textarea#advertisement_body").parent().addClass("has-error");
+	$("textarea#advertisement_body").after("<%= escape_javascript(error_message(@ad, :body)) %>");
+<% end %>
+<% if error_present?(@ad, :duration) %>
+	$("select#advertisement_duration").parent().addClass("has-error");
+	$("select#advertisement_duration").after("<%= escape_javascript(error_message(@ad, :duration)) %>");
+<% end %>

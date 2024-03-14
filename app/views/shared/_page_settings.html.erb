@@ -1,0 +1,12 @@
+<div id="settings-list" class="list-group">
+	<% page_active = (selection == 'page') ? "active" : "" %>
+	<% address_active = (selection == 'address') ? "active" : "" %>
+	<%= link_to edit_page_path(page), class: "list-group-item #{page_active}" do %>
+		Page
+		<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+	<% end %>
+	<%= link_to (page.address.nil? ? new_page_address_path(page) : edit_page_address_path(page)), class: "list-group-item #{address_active}" do %>
+		Address
+		<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span>
+	<% end %>
+</div>

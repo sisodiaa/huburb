@@ -1,0 +1,11 @@
+<div class="btn-group margin-right-15">
+	<% unless dashboard %>
+		<%= link_to "Pages", user_pages_path, class: 'btn btn-default' %>
+	<% end %>
+	<%= link_to "Edit", edit_page_path(page), class: 'btn btn-default' %>
+	<% unless page.address %>
+		<%= link_to 'Add Address', new_page_address_path(page), class: 'btn btn-default' %>
+	<% end %>
+	<%= link_to "Delete", page, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, 
+		class: 'btn btn-default' %>
+</div>

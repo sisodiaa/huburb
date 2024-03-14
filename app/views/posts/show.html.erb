@@ -1,0 +1,15 @@
+<%= render partial: 'pages/page_panel', locals: { page: @page, post: @post, is_post: true } %>
+<div class="col-md-offset-1 col-md-10">
+	<div id="post-container" class="card">
+		<div class="post-title text-center">
+			<h1><%= @post.title.titleize %></h1>
+			<% if @post.pinned %>
+				<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+				<span class="label label-default">Pinned</span>
+			<% end %>
+		</div>
+		<div class="trix-content">
+			<%= sanitize @post.body, scrubber: PostScrubber.new %>
+		</div>
+	</div>
+</div>

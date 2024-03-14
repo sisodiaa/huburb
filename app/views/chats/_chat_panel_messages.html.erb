@@ -1,0 +1,10 @@
+<div 
+	id="chat-panel-messages"
+	data-chat-room="<%= room.id %>"
+	data-sender="<%= message_room_sender.sender_type %>"
+>
+	<%= render partial: 'messages/message',
+						 collection: room.messages,
+						 locals: { message_room_sender: message_room_sender }
+	%>
+</div>

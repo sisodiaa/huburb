@@ -1,0 +1,6 @@
+<div id="ad-results" class="clearfix">
+	<%= render partial: 'advertisement_results', collection: @ads, as: :advertisement %>
+</div>
+<div class="text-center">
+	<%= paginate @ads %>
+</div>

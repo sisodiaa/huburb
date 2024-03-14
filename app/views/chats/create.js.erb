@@ -1,0 +1,9 @@
+$('#chat-panel').html("<%= escape_javascript(render(partial: 'chat_panel_visitor', locals: {room: @room})) %>");
+$('#button-create-room').remove();
+
+if(document.getElementById('chat-panel-messages')) {
+	var chat_room_id = $('#chat-panel-messages').data('chat-room');
+	if(!App["chat_room_" + chat_room_id]) {
+		createChatRoomSubscription(chat_room_id);
+	}
+}
